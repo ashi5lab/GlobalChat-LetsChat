@@ -25,23 +25,43 @@ struct ChatRow: View {
             
             VStack(alignment: chatData.user == user ? .trailing : .leading, spacing: 5, content: {
                 
-                Text(chatData.msg)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.red)
-                // Custom Shape...
-                    .clipShape(ChatBubble(myMsg: chatData.user == user))
                 
-                Text(chatData.timeStamp,style: .time)
-                    .font(.caption2)
-                    .foregroundColor(.gray)
-                    .padding(chatData.user != user ? .leading : .trailing , 10)
+                if(chatData.user == user)
+                {
+                    Text(chatData.msg)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.red)
+                    // Custom Shape...
+                        .clipShape(ChatBubble(myMsg: chatData.user == user))
+                    
+                    Text(chatData.timeStamp,style: .time)
+                        .font(.caption2)
+                        .foregroundColor(.gray)
+                        .padding(chatData.user != user ? .leading : .trailing , 10)
+                }
+                else{
+                    Text(chatData.msg)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                    // Custom Shape...
+                        .clipShape(ChatBubble(myMsg: chatData.user == user))
+                    
+                    Text(chatData.timeStamp,style: .time)
+                        .font(.caption2)
+                        .foregroundColor(.gray)
+                        .padding(chatData.user != user ? .leading : .trailing , 10)
+                }
+                
             })
             
             if chatData.user == user{
                 
                 NickName(name: chatData.user)
+                
             }
             
             if chatData.user != user{Spacer(minLength: 0)}
