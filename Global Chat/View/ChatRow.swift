@@ -29,7 +29,7 @@ struct ChatRow: View {
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color("Color"))
+                    .background(Color.red)
                 // Custom Shape...
                     .clipShape(ChatBubble(myMsg: chatData.user == user))
                 

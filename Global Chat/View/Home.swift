@@ -26,7 +26,7 @@ struct Home: View {
             }
             .padding()
             .padding(.top,UIApplication.shared.windows.first?.safeAreaInsets.top)
-            .background(Color("Color"))
+            .background(Color.red)
             
             ScrollViewReader{reader in
                 
